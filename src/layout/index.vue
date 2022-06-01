@@ -5,9 +5,7 @@
     </div>
     <div class="view-container">
       <div class="view-head">
-        <div class="navbar-container">
-          
-        </div>
+        <nav-bar />
         <div class="tagbar-container">
 
         </div>
@@ -24,12 +22,17 @@
 </template>
 
 <script>
+import NavBar from './components/NavBar/index.vue'
+
 export default {
+  components: { NavBar },
   computed: {
     appStatus() {
-      return {}
+      return {
+        'sidebar-collapse': this.$store.state.app.sidebar === 'collapse'
+      }
     }
-  }
+  },
 }
 </script>
 
