@@ -1,12 +1,10 @@
-# Sancho Seed Vue3 Vite
+# Sancho Admin Vue3 Vite
 
 English | [中文](README_zh_CN.md)
 
 ## Overview
 
-Sancho Seed Vue3 Vite is base on Vue3 and Vite, and aims to provide an out-of-the-box light weight frontend scalfold without any UI libraries. With Sancho Seed Vue3 Vite, you can easily initiate your web project. All you need to do is to choose UI library or just do all the rest jobs by yourself. 
-
-If you want to use webpack, you can also see [Sancho Seed Vue3 Webpack](https://github.com/enbrau/sancho-seed-vue3-webpack) as well. Both [Sancho Seed Vue3 Webpack](https://github.com/enbrau/sancho-seed-vue3-webpack) and [Sancho Seed Vue3 Vite](https://github.com/enbrau/sancho-seed-vue3-vite) have the same engineering structure and engineering characteristic design.
+Sancho Admin Vue3 Vite is an out-of-the-box frontend scalfold for back-stage management which is based on [Sancho Seed Vue3 Vite](https://github.com/enbrau/sancho-seed-vue3-vite), and two different UI library: Element Plus and Vant.
 
 ## Features
 
@@ -55,6 +53,7 @@ npm build
     ├── consts           # Constants
     ├── hooks            # (Throw-In Available) Hooks
     ├── i18n             # (Throw-In Available) Translations
+    ├── layout           # UI Layout
     ├── router           # (Throw-In Available) Routes
     ├── store            # (Throw-In Available) State management
     ├── utils            # Common functions

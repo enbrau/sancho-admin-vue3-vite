@@ -1,12 +1,10 @@
-# Sancho Seed Vue3 Vite
+# Sancho Admin Vue3 Vite
 
 [English](README.md) | 中文
 
 ## 概述
 
-Sancho Seed Vue3 Vite 基于 Vue3 和 Vite，目的是为了提供一个轻量的不含UI组件库的开箱即用前端脚手架。基于 Sancho Seed Vue3 Vite, 你可以很容易地初始化你的项目。你剩下要做的就是选择一个你喜欢的UI组件库，或者你自己来。
-
-如果你想使用 Webpack，你也可以参考 [Sancho Seed Vue3 Webpack](https://github.com/enbrau/sancho-seed-vue3-webpack) 这个项目. [Sancho Seed Vue3 Webpack](https://github.com/enbrau/sancho-seed-vue3-webpack) 与 [Sancho Seed Vue3 Vite](https://github.com/enbrau/sancho-seed-vue3-vite) 具有相同工程结构和工程特性设计。
+Sancho Admin Vue3 Vite 是一套开箱即用的为后端管理应用而打造的脚手架，基于 [Sancho Seed Vue3 Vite](https://github.com/enbrau/sancho-seed-vue3-vite) 脚手架以及两套 UI 框架：Element Plus 和 Vant。
 
 ## 特性
 
@@ -55,6 +53,7 @@ npm build
     ├── consts           # 常量
     ├── hooks            # (丢入即可) 钩子
     ├── i18n             # (丢入即可) 翻译
+    ├── layout           # UI 布局
     ├── router           # (丢入即可) 路由
     ├── store            # (丢入即可) 状态管理
     ├── utils            # 公共函数
