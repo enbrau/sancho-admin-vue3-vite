@@ -40,3 +40,4 @@ preloadHook.promise(app).then(() => {
 })
 
 import '@/utils/handle-window-resize.js'
+import '@/style/index.scss'

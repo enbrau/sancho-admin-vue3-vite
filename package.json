@@ -31,6 +31,7 @@
     "cross-env": "^7.0.3",
     "dotenv": "^16.0.1",
     "mockjs": "^1.1.0",
+    "sass": "^1.52.1",
     "vite": "^2.9.9",
     "vite-plugin-mock": "^2.9.6"
   }
