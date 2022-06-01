@@ -1,3 +1,6 @@
+@import './variables.scss';
+@import './transition.scss';
+
 html {
   height: 100%;
 }
@@ -6,4 +9,26 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-family: var(--sans-font);
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+a,
+a:focus,
+a:hover {
+  cursor: pointer;
+  color: inherit;
+  text-decoration: none;
+}
+
+div:focus {
+  outline: none;
 }

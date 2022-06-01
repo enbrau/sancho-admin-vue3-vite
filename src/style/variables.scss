@@ -1,0 +1,13 @@
+:root {
+  /* Set sans-serif & mono fonts */
+  --sans-font: -apple-system, BlinkMacSystemFont, "Avenir Next", Avenir,
+    "Nimbus Sans L", Roboto, Noto, "Segoe UI", Arial, Helvetica,
+    "Helvetica Neue", sans-serif;
+  --mono-font: Consolas, Menlo, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+
+  /* Theme color and size */
+  --sancho-sidebar-width: 210px;
+  --sancho-sidebar-width-collapse: 64px;
+  --sancho-navbar-height: 50px;
+  --sancho-tagbar-height: 30px;
+}
