@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
+import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 import { viteMockServe } from 'vite-plugin-mock'
 import path from 'path'
 import settings from './settings'
@@ -25,6 +26,11 @@ export default defineConfig(() => {
     },
     plugins: [
       vue(),
+      // svg icon support
+      createSvgIconsPlugin({
+        iconDirs: [path.resolve(process.cwd(), 'src/icons')],
+        symbolId: 'icon-[dir]-[name]',
+      }),
       {
         name: 'html-transform',
         transformIndexHtml(html) {
