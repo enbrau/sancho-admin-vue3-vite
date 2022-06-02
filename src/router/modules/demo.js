@@ -1,11 +1,18 @@
+import Layout from '@/layout'
+
 export default [
   {
-    path: '/',
-    component: () => import('@/views/demo'),
+    path: '/demo',
+    component: Layout,
+    redirect: 'noRedirect',
+    isMenu: true,
+    meta: { title: 'demo.menus.Demo', icon: 'demo-fill', affix: true, noCache: true },
     children: [
       {
-        path: 'demo',
-        component: () => import('@/views/demo')
+        path: 'icon',
+        component: () => import('@/views/demo/icons.vue'),
+        isMenu: true,
+        meta: { title: 'demo.menus.Icons', icon: 'icon-fill', affix: true, noCache: true }
       }
     ]
   }

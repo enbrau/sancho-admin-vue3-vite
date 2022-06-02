@@ -21,7 +21,7 @@ for (const moduleFileName in moduleFiles) {
   console.log(`[Sancho] Route loaded: ${moduleName}`)
 }
 
-const staticRoutes = [
+const routes = [
   {
     path: '/redirect',
     component: Layout,
@@ -39,11 +39,6 @@ const staticRoutes = [
     hidden: true
   },
   {
-    path: '/404',
-    component: () => import('@/views/error/404.vue'),
-    hidden: true
-  },
-  {
     path: '/',
     component: Layout,
     redirect: '/dashboard',
@@ -53,22 +48,27 @@ const staticRoutes = [
         path: 'dashboard',
         component: () => import('@/views/dashboard'),
         meta: { title: 'common.menus.Dashboard', icon: 'home', affix: true, noCache: true }
-      }
+      },
+      {
+        path: '403',
+        component: () => import('@/views/error/403.vue'),
+        hidden: true
+      },
+      {
+        path: '404',
+        component: () => import('@/views/error/404.vue'),
+        hidden: true
+      },
     ]
   },
-  { path: '/:pathMatch(.*)*', redirect: '/404', hidden: true }
-]
-
-export const dynamicRoutes = [
   ...scannedRoutes,
-  // mismatched route all goes to 404
   { path: '/:pathMatch(.*)*', redirect: '/404', hidden: true }
 ]
 
 const router = createRouter({
   history: createWebHashHistory(),
   scrollBehavior: () => ({ left: 0 }),
-  routes: staticRoutes
+  routes
 })
 
 const whiteList = ['/login']
@@ -96,14 +96,13 @@ router.beforeEach(async (to, from, next) => {
     }
   }
 
-  const routes = deepClone([...staticRoutes, ...dynamicRoutes])
   // Update Routes
-  const accessibleRoutes = await store.dispatch('subscriber/updateRoutes', routes)
+  await store.dispatch('subscriber/updateRoutes', routes)
 
-  for (const route of accessibleRoutes) {
-    router.addRoute(route)
-  }
-  router.addRoute({ path: '/:pathMatch(.*)*', redirect: '/404', hidden: true })
+  // for (const route of accessibleRoutes) {
+  //   router.addRoute(route)
+  // }
+  // router.addRoute({ path: '/:pathMatch(.*)*', redirect: '/404', hidden: true })
 
   return beforeRouteHook.promise(to, from, next)
     .then(() => {
