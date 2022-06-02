@@ -1,8 +1,6 @@
 <template>
   <div class="app-wrapper" :class="appStatus">
-    <div class="sidebar-container">
-
-    </div>
+    <side-bar />
     <div class="view-container">
       <div class="view-head">
         <nav-bar />
@@ -23,9 +21,10 @@
 
 <script>
 import NavBar from './components/NavBar/index.vue'
+import SideBar from './components/SideBar/index.vue'
 
 export default {
-  components: { NavBar },
+  components: { SideBar, NavBar },
   computed: {
     appStatus() {
       return {
