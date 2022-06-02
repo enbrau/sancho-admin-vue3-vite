@@ -1,7 +1,7 @@
 // import { getToken, setToken, removeToken, filterRoutes, SUPER_ADMIN } from '@/utils/framework'
 // import { fetchProfile, login, logout } from '@/api/subscriber'
-import { SESSION_STORAGE_KEYS } from '@/consts'
-import { getCookie, setCookie } from '@/utils'
+import { SESSION_STORAGE_KEYS, PERM_KEYS } from '@/consts'
+import { getCookie, setCookie, clearCookies } from '@/utils'
 import settings from '@/../settings'
 import $api from '@/api'
 
@@ -14,11 +14,10 @@ const SET_ROUTES  = 'SET_ROUTES'
 
 const state = {
   token: null,
-  // token: getToken(),
-  // sid: null,
-  // profile: null,
-  // perms: [],
-  // roles: [],
+  sid: null,
+  profile: null,
+  perms: [],
+  roles: [],
   routes: []
 }
 
@@ -26,18 +25,18 @@ const mutations = {
   [SET_TOKEN]: (state, token) => {
     state.token = token
   },
-  // [SET_SID]: (state, sid) => {
-  //   state.sid = sid
-  // },
-  // [SET_PERMS]: (state, perms) => {
-  //   state.perms = perms
-  // },
-  // [SET_ROLES]: (state, roles) => {
-  //   state.roles = roles
-  // },
-  // [SET_PROFILE]: (state, profile) => {
-  //   state.profile = profile
-  // },
+  [SET_SID]: (state, sid) => {
+    state.sid = sid
+  },
+  [SET_PERMS]: (state, perms) => {
+    state.perms = perms
+  },
+  [SET_ROLES]: (state, roles) => {
+    state.roles = roles
+  },
+  [SET_PROFILE]: (state, profile) => {
+    state.profile = profile
+  },
   [SET_ROUTES]: (state, routes) => {
     state.routes = routes
   }
@@ -85,46 +84,53 @@ const actions = {
       })
     })
   },
-  // logout({ commit }) {
-  //   return new Promise((resolve, reject) => {
-  //     function cleanUpSubscriber(commit) {
-  //       removeToken()
-  //       commit(SET_TOKEN, null)
-  //       commit(SET_SID, null)
-  //       commit(SET_PERMS, [])
-  //       commit(SET_ROLES, [])
-  //       commit(SET_PROFILE, null)
-  //     }
-  //     logout().then(() => {
-  //       cleanUpSubscriber(commit)
-  //       resolve()
-  //     }).catch(error => {
-  //       console.log('[Sancho] Backend logout error: ', error)
-  //       cleanUpSubscriber(commit)
-  //       resolve()
-  //     })
-  //   })
-    
-  // },
-  // updateProfile({ commit }) {
-  //   return new Promise((resolve, reject) => {
-  //     fetchProfile().then(response => {
-  //       const { data } = response
-  //       commit(SET_SID, data.sid)
-  //       commit(SET_PERMS, data.perms || [])
-  //       commit(SET_ROLES, data.roles || [])
-  //       commit(SET_PROFILE, data)
-  //       resolve()
-  //     }).catch(error => {
-  //       reject(error)
-  //     })
-  //   })
-  // },
+  logout({ commit }) {
+    return new Promise((resolve, reject) => {
+      function cleanUpSubscriber(commit) {1
+        switch(settings.security.tokenStrategy) {
+          case 'header':
+            window.sessionStorage.removeItem(SESSION_STORAGE_KEYS.TOKEN)
+            break
+          case 'cookie':
+          default:
+            clearCookies()
+            break
+        }
+        commit(SET_TOKEN, null)
+        commit(SET_SID, null)
+        commit(SET_PERMS, [])
+        commit(SET_ROLES, [])
+        commit(SET_PROFILE, null)
+      }
+      $api.subscriber.logout().then(() => {
+        cleanUpSubscriber(commit)
+        resolve()
+      }).catch(error => {
+        console.log('[Sancho] Backend logout error: ', error)
+        cleanUpSubscriber(commit)
+        resolve()
+      })
+    })
+  },
+  updateProfile({ commit }) {
+    return new Promise((resolve, reject) => {
+      $api.subscriber.fetchProfile().then(response => {
+        const { data } = response
+        commit(SET_SID, data.sid)
+        commit(SET_PERMS, data.perms || [])
+        commit(SET_ROLES, data.roles || [])
+        commit(SET_PROFILE, data)
+        resolve()
+      }).catch(error => {
+        reject(error)
+      })
+    })
+  },
   updateRoutes({ state, commit }, routes) {
     return new Promise(resolve => {
       const perms = state.perms
       let accessibleRoutes
-      if (perms.includes(SUPER_ADMIN)) {
+      if (perms.includes(PERM_KEYS.SUPER_ADMIN)) {
         accessibleRoutes = routes
       } else {
         accessibleRoutes = filterRoutes(routes, { perms: perms })

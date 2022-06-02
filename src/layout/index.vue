@@ -79,4 +79,10 @@ export default {
     }
   }
 }
+
+.mobile {
+  .main-container {
+    margin-left: 0px;
+  }
+}
 </style>
