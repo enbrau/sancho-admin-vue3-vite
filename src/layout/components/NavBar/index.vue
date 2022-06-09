@@ -26,12 +26,6 @@ export default {
       return this.$store.state.app.sidebar === 'collapse'
     }
   },
-  mounted() {
-    console.log(tools)
-    // this.$nextTick(() => {
-    //   this.$store.dispatch('app/navbarReady')
-    // })
-  },
   methods: {
     toggleSidebar() {
       this.$store.dispatch('app/setSidebarMode', (this.isSideBarCollapse ? '' : 'collapse'))

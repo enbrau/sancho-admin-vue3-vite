@@ -4,9 +4,7 @@
     <div class="view-container">
       <div class="view-head">
         <nav-bar />
-        <div class="tagbar-container">
-
-        </div>
+        <tag-bar />
       </div>
       <div class="view-body">
         <router-view v-slot="{ Component }">
@@ -22,9 +20,10 @@
 <script>
 import NavBar from './components/NavBar/index.vue'
 import SideBar from './components/SideBar/index.vue'
+import TagBar from './components/TagBar/index.vue'
 
 export default {
-  components: { SideBar, NavBar },
+  components: { SideBar, NavBar, TagBar },
   computed: {
     appStatus() {
       return {
