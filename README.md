@@ -44,27 +44,33 @@ npm build
 
 ```
 .
-├── mock                 # (Throw-In Available) Mock API
-├── public               # Static assets (copy only)
-├── src                  # 
-    ├── api              # (Throw-In Available) Axios API functions
-    ├── assets           # Static assets
-    ├── components       # Common components
-    ├── consts           # Constants
-    ├── hooks            # (Throw-In Available) Hooks
-    ├── i18n             # (Throw-In Available) Translations
-    ├── layout           # UI Layout
-    ├── router           # (Throw-In Available) Routes
-    ├── store            # (Throw-In Available) State management
-    ├── utils            # Common functions
-    ├── views            # View components
-    ├── App.vue          # Entrance component
-    └── main.js          # Entrance file
-├── .env.development     # Environment parameters for development with mock server
-├── .env.online          # Environment parameters for development with proxy server
-├── .env.production      # Environment parameters for production
-├── settings.js          # Project config file
-├── vite.config.js       # Vite config file
+├── mock                     # (Throw-In Available) Mock API
+├── public                   # Static assets (copy only)
+├── src                      # 
+    ├── api                  # (Throw-In Available) Axios API functions
+    ├── assets               # Static assets
+    ├── components           # Common components
+    ├── consts               # Constants
+    ├── hooks                # (Throw-In Available) Hooks
+    ├── i18n                 # (Throw-In Available) Translations
+    ├── layout               # UI Layout
+        ├── components       # Layout components
+            ├── NavBar       # Layout component: NavBar
+                ├── tools    # (Throw-In Available) NavBar tools
+                └── ...
+            └── ...
+        └── ...
+    ├── router               # (Throw-In Available) Routes
+    ├── store                # (Throw-In Available) State management
+    ├── utils                # Common functions
+    ├── views                # View components
+    ├── App.vue              # Entrance component
+    └── main.js              # Entrance file
+├── .env.development         # Environment parameters for development with mock server
+├── .env.online              # Environment parameters for development with proxy server
+├── .env.production          # Environment parameters for production
+├── settings.js              # Project config file
+├── vite.config.js           # Vite config file
 └── ...
 ```
 

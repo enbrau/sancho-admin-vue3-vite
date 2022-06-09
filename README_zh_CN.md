@@ -44,27 +44,33 @@ npm build
 
 ```
 .
-├── mock                 # (丢入即可) 测试桩
-├── public               # 静态资源（仅拷贝）
-├── src                  # 
-    ├── api              # (丢入即可) Axios API 封装函数
-    ├── assets           # 静态资源
-    ├── components       # 公共组件
-    ├── consts           # 常量
-    ├── hooks            # (丢入即可) 钩子
-    ├── i18n             # (丢入即可) 翻译
-    ├── layout           # UI 布局
-    ├── router           # (丢入即可) 路由
-    ├── store            # (丢入即可) 状态管理
-    ├── utils            # 公共函数
-    ├── views            # 视图组件
-    ├── App.vue          # 入口组件
-    └── main.js          # 入口文件
-├── .env.development     # 环境变量：开发环境（离线开发）
-├── .env.online          # 环境变量：开发环境（联机开发）
-├── .env.production      # 环境变量：生产环境
-├── settings.js          # 项目配置文件
-├── vite.config.js       # Vite 配置文件
+├── mock                     # (丢入即可) 测试桩
+├── public                   # 静态资源（仅拷贝）
+├── src                      # 
+    ├── api                  # (丢入即可) Axios API 封装函数
+    ├── assets               # 静态资源
+    ├── components           # 公共组件
+    ├── consts               # 常量
+    ├── hooks                # (丢入即可) 钩子
+    ├── i18n                 # (丢入即可) 翻译
+    ├── layout               # UI 布局
+        ├── components       # UI 布局组件 
+            ├── NavBar       # UI 布局组件：导航栏
+                ├── tools    # (丢入即可) 导航栏工具
+                └── ...
+            └── ...
+        └── ...
+    ├── router               # (丢入即可) 路由
+    ├── store                # (丢入即可) 状态管理
+    ├── utils                # 公共函数
+    ├── views                # 视图组件
+    ├── App.vue              # 入口组件
+    └── main.js              # 入口文件
+├── .env.development         # 环境变量：开发环境（离线开发）
+├── .env.online              # 环境变量：开发环境（联机开发）
+├── .env.production          # 环境变量：生产环境
+├── settings.js              # 项目配置文件
+├── vite.config.js           # Vite 配置文件
 └── ...
 ```
 
