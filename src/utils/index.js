@@ -15,8 +15,21 @@ export function clearCookies() {
   document.cookie.split(';').forEach(cookie => document.cookie = cookie.replace(/^ +/, '').replace(/=.*/, `=;expires=${new Date(0).toUTCString()};path=/`))
 }
 
-export function isDarkMode() {
+export function isSystemDarkMode() {
   return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+}
+
+export function getParameters(url) {
+  const URL = url || window.location
+  URL = JSON.parse(
+    '{"' +
+      decodeURI(URL.split("?")[1])
+        .replace(/"/g, '\\"')
+        .replace(/&/g, '","')
+        .replace(/=/g, '":"') +
+      '"}'
+  );
+  return JSON.stringify(URL)
 }
 
 export function deepClone(source, strict) {

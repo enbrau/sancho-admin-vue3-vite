@@ -1,5 +1,5 @@
 import { SESSION_STORAGE_KEYS } from "@/consts"
-import { isDarkMode } from '@/utils'
+import { isSystemDarkMode } from '@/utils'
 import settings from '@/../settings'
 
 const SET_WINDOW_INNER_HEIGHT = 'SET_WINDOW_INNER_HEIGHT'
@@ -13,7 +13,7 @@ const state = {
   windowInnerHeight: window.innerHeight,
   size: 'default',
   locale: (window.sessionStorage.getItem(SESSION_STORAGE_KEYS.LOCALE) || navigator.language || navigator.userLanguage || 'zh-cn').toLowerCase(),
-  themeMode: window.sessionStorage.getItem(SESSION_STORAGE_KEYS.THEME_MODE) || (isDarkMode() ? 'dark' : 'light'),
+  themeMode: window.sessionStorage.getItem(SESSION_STORAGE_KEYS.THEME_MODE) || (isSystemDarkMode() ? 'dark' : 'light'),
   sidebar: window.sessionStorage.getItem(SESSION_STORAGE_KEYS.SIDEBAR_MODE) || settings.layout.defaultSideBarMode || 'collapse'
 }
 
