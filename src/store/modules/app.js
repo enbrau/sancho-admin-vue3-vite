@@ -47,6 +47,8 @@ const actions = {
   setThemeMode({ commit }, themeMode) {
     window.sessionStorage.setItem(SESSION_STORAGE_KEYS.THEME_MODE, themeMode)
     commit(SET_THEME_MODE, themeMode)
+    document.getElementsByTagName('html')[0].className = themeMode === 'dark' ? 'dark' : ''
+    
   },
   setSidebarMode({ commit }, sidebarMode) {
     window.sessionStorage.setItem(SESSION_STORAGE_KEYS.SIDEBAR_MODE, sidebarMode)
