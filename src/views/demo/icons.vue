@@ -1,12 +1,15 @@
 <template>
-  <ul class="demo-icon-list">
-    <li class="icon-item" v-for="icon in icons" :key="icon">
-      <span class="demo-svg-icon">
-        <svg-icon :icon-class="icon"/>
-        <span class="icon-name">{{icon}}</span>
-      </span>
-    </li>
-  </ul>
+  <div class="view-body-wrapper">
+    <ul class="demo-icon-list">
+      <li class="icon-item" v-for="icon in icons" :key="icon">
+        <span class="demo-svg-icon">
+          <svg-icon :icon-class="icon"/>
+          <span class="icon-name">{{icon}}</span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  
 </template>
 
 <script>
@@ -31,10 +34,8 @@ export default {
   border-radius: 4px;
   display: grid;
   grid-template-columns: repeat(7,1fr);
-  margin: 1rem 0;
+  margin: 0;
   line-height: 1.7;
-  margin-block-start: 1em;
-  margin-block-end: 1em;
   margin-inline-start: 0px;
   margin-inline-end: 0px;
   padding-inline-start: 40px;

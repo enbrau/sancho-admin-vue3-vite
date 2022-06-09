@@ -6,7 +6,7 @@
         <nav-bar />
         <tag-bar />
       </div>
-      <div class="view-body">
+      <div class="view-body" :style="{ height: viewBodyHeight + 'px' }">
         <router-view v-slot="{ Component }">
           <keep-alive>
             <component :is="Component" :key="undefined"  />
@@ -29,12 +29,19 @@ export default {
       return {
         'sidebar-collapse': this.$store.state.app.sidebar === 'collapse'
       }
+    },
+    viewBodyHeight() {
+      return this.$store.state.app.windowInnerHeight - 50 - 32
     }
   },
 }
 </script>
 
 <style lang="scss">
+body {
+  overflow: hidden;
+}
+
 .app-wrapper {
   position: relative;
   height: 100%;
@@ -75,6 +82,24 @@ export default {
 
     .view-container {
       margin-left: var(--sancho-sidebar-width-collapse);
+    }
+  }
+
+  .view-body {
+    overflow: auto;
+    position: relative;
+
+    .view-body-wrapper {
+      padding: 15px;
+
+      &.adapt-height {
+        overflow: auto;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+      }
     }
   }
 }
