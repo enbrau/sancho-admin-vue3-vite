@@ -20,7 +20,7 @@ export function isSystemDarkMode() {
 }
 
 export function getParameters(url) {
-  const URL = url || window.location
+  let URL = url || window.location
   URL = JSON.parse(
     '{"' +
       decodeURI(URL.split("?")[1])
