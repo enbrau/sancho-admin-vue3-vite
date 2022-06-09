@@ -15,6 +15,7 @@ const app = createApp(App)
 // UI Library: ElementPlus
 import ElementPlus from 'element-plus'
 import 'element-plus/theme-chalk/index.css'
+import 'element-plus/theme-chalk/dark/css-vars.css'
 import en from 'element-plus/lib/locale/lang/en'
 import zhCn from 'element-plus/lib/locale/lang/zh-cn'
 import zhTw from 'element-plus/lib/locale/lang/zh-tw'

@@ -5,10 +5,7 @@
       <el-menu
         :default-active="activeMenu"
         :collapse="isCollapse"
-        :background-color="menuBackgroundColor"
-        :text-color="menuTextColor"
         :unique-opened="false"
-        :active-text-color="menuActiveTextColor"
         :collapse-transition="false"
         mode="vertical"
       >
@@ -51,15 +48,6 @@ export default {
       }
       return path
     },
-    menuBackgroundColor() {
-      return isDarkMode() ? 'var(--sancho-menu-background-color)' : 'var(--sancho-menu-background-color-dark)'
-    },
-    menuTextColor() {
-      return isDarkMode() ? 'var(--sancho-menu-text-color)' : 'var(--sancho-menu-text-color-dark)'
-    },
-    menuActiveTextColor() {
-      return isDarkMode() ? 'var(--sancho-menu-active-text-color)' : 'var(--sancho-menu-active-text-color-dark)'
-    },
     menus() {
       const menus = []
       const routes = deepClone(this.$store.state.subscriber.routes)
@@ -84,6 +72,7 @@ export default {
 .sidebar-container {
   transition: width 0.28s;
   width: var(--sancho-sidebar-width) !important;
+  background-color: var(--el-bg-color-page);
   height: 100%;
   position: fixed;
   font-size: 0px;

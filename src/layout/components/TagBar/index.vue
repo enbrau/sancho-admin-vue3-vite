@@ -288,9 +288,9 @@ export default {
       cursor: pointer;
       height: 26px;
       line-height: 26px;
-      border: 1px solid #d8dce5;
-      color: #495060;
-      background: #fff;
+      border: 1px solid var(--el-button-disabled-bg-color);
+      color: var(--el-button-disabled-text-color);
+      background: var(--el-button-disabled-border-color);
       padding: 0 8px;
       font-size: 12px;
       margin-left: 5px;
@@ -305,9 +305,9 @@ export default {
       }
 
       &.active {
-        background-color: #1890ff;
-        color: #fff;
-        border-color: #1890ff;
+        background-color: var(--el-color-primary);
+        color: var(--el-text-color-primary);
+        border-color: var(--el-color-primary);
         // &::before {
         //   content: '';
         //   background: #fff;

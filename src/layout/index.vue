@@ -66,6 +66,8 @@ body {
     position: relative;
 
     .view-head {
+      background-color: var(--el-bg-color-page);
+      
       .navbar-container {
         height: var(--sancho-navbar-height);
       }
