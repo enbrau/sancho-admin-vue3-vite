@@ -6,6 +6,26 @@
     <breadcrumb />
     <div class="right-menu">
       <component :is="$key" v-for="$key in tools" :key="$key" />
+      <el-dropdown class="avatar-container right-menu-item hover-effect" trigger="click">
+        <div class="avatar-wrapper">
+          <el-avatar :class="'user-avatar' + (isCancelImpersonateEnabled ? ' impersonate' : '')">
+            <svg-icon v-if="!isCancelImpersonateEnabled" icon-class="male" />
+            <svg-icon v-else icon-class="spy" />
+          </el-avatar>
+        </div>
+        <template #dropdown>
+          <el-dropdown-menu class="sancho-user-menu">
+            <component :is="$key" v-for="$key in actions" :key="$key" />
+            <el-divider style="margin: 0px;"></el-divider>
+            <el-dropdown-item>
+              <span style="display:block;" @click="logout">
+                <svg-icon icon-class="exit" />
+                {{ $t('common.logout') }}
+              </span>
+            </el-dropdown-item>
+          </el-dropdown-menu>
+        </template>
+      </el-dropdown>
     </div>
   </div>
 </template>
@@ -13,12 +33,14 @@
 <script>
 import Breadcrumb from './Breadcrumb.vue'
 import tools from './tools.js'
+import actions from './actions.js'
 
 export default {
-  components: { Breadcrumb, ...tools },
+  components: { Breadcrumb, ...tools, ...actions },
   data() {
     return {
-      tools
+      tools,
+      actions
     }
   },
   computed: {
@@ -68,6 +90,33 @@ export default {
 
       &:hover {
         background-color: var(--el-fill-color-light);
+      }
+    }
+
+    .avatar-container {
+
+      .avatar-wrapper {
+        margin-top: 5px;
+        position: relative;
+
+        .user-avatar {
+          cursor: pointer;
+          width: 40px;
+          height: 40px;
+          border-radius: 10px;
+
+           &.impersonate {
+             background-color: var(--el-color-danger);
+           }
+        }
+
+        .el-icon {
+          cursor: pointer;
+          position: absolute;
+          right: -20px;
+          top: 25px;
+          font-size: 12px;
+        }
       }
     }
   }
