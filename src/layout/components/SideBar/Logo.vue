@@ -55,7 +55,7 @@ export default {
       width: 32px;
       height: var(--sancho-navbar-hdight);
       vertical-align: middle;
-      margin-right: 12px;
+      margin-right: 5px;
     }
 
     & .sidebar-title {
