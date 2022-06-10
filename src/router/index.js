@@ -47,7 +47,7 @@ const routes = [
       {
         path: 'dashboard',
         component: () => import('@/views/dashboard'),
-        meta: { title: 'common.menus.Dashboard', icon: 'home', affix: true, noCache: true }
+        meta: { title: 'common.menus.Dashboard', icon: 'home-fill', affix: true, noCache: true }
       },
       {
         path: '403',
