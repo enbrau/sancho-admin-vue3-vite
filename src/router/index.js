@@ -1,6 +1,7 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import { beforeRouteHook, afterRouteHook, errorHook } from '@/hooks'
-import { deepClone } from '@/utils'
+import NProgress from 'nprogress'
+import 'nprogress/nprogress.css'
 import store from '@/store'
 import { PERM_KEYS } from '@/consts'
 import Layout from '@/layout'
@@ -73,6 +74,8 @@ const router = createRouter({
 
 const whiteList = ['/login']
 router.beforeEach(async (to, from, next) => {
+  NProgress.start()
+
   const token = await store.dispatch('subscriber/getToken')
 
   if (!token) {
@@ -114,6 +117,7 @@ router.beforeEach(async (to, from, next) => {
 })
 
 router.afterEach(async (route) => {
+  NProgress.done()
   return afterRouteHook.promise(route)
     .catch((error) => {
       errorHook.call(error)

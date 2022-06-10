@@ -32,3 +32,13 @@ a:hover {
 div:focus {
   outline: none;
 }
+
+#nprogress {
+  z-index: 999999;
+  .bar {
+    background: var(--el-color-primary);
+  }
+  .spinner {
+    display: none;
+  }
+}
