@@ -1,5 +1,52 @@
 import lodash from 'lodash'
 
+export function typeOf(obj) {
+  let res = Object.prototype.toString.call(obj).split(' ')[1]
+  res = res.substring(0, res.length - 1).toLowerCase()
+  return res
+}
+
+export function isEmpty(target) {
+  if (target === undefined || target === null) {
+    return true
+  }
+  if (typeof (target) === 'string' && target.trim() === '') {
+    return true
+  }
+  return target instanceof Array && target.length === 0;
+}
+
+export function debounce(func, wait, immediate) {
+  let timeout, result
+  
+  const debounced = function () {
+      var context = this;
+      var args = arguments;
+      
+      if (timeout) clearTimeout(timeout);
+      if (immediate) {
+          // 如果已经执行过，不再执行
+          var callNow = !timeout;
+          timeout = setTimeout(function(){
+              timeout = null;
+          }, wait)
+          if (callNow) result = func.apply(context, args)
+      } else {
+          timeout = setTimeout(function(){
+              func.apply(context, args)
+          }, wait);
+      }
+      return result;
+  };
+
+  debounced.cancel = function() {
+      clearTimeout(timeout);
+      timeout = null;
+  };
+
+  return debounced;
+}
+
 export function getCookie(name) {
   return `; ${document.cookie}`.split(`; ${name}=`).pop().split(';').shift()
 }
