@@ -31,7 +31,7 @@ export default {
       }
     },
     viewBodyHeight() {
-      return this.$store.state.app.windowInnerHeight - 50 - 32
+      return this.$store.state.app.windowInnerHeight - 50 - 32 - 10
     }
   },
 }
@@ -64,16 +64,21 @@ body {
     transition: margin-left 0.28s;
     margin-left: var(--sancho-sidebar-width);
     position: relative;
+    background-color: var(--el-bg-color-page);
 
     .view-head {
-      background-color: var(--el-bg-color-page);
-      
       .navbar-container {
         height: var(--sancho-navbar-height);
       }
       .tagbar-container {
         height: var(--sancho-tagbar-height);
       }
+    }
+
+    .view-body {
+      background-color: var(--el-bg-color);
+      border-radius: 10px;
+      margin-right: 10px;
     }
   }
 

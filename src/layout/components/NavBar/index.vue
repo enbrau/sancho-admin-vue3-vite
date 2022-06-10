@@ -57,6 +57,10 @@ export default {
         cursor: pointer;
         transition: .3s;
       }
+
+      &:focus {
+        background-color: transparent !important;
+      }
     }
   }
 }
