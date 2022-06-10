@@ -82,6 +82,10 @@ export default {
   z-index: 1001;
   overflow: hidden;
 
+  .el-menu-item {
+    display: block;
+  }
+
   // reset element-ui css
   .horizontal-collapse-transition {
     transition: 0s width ease-in-out, 0s padding-left ease-in-out, 0s padding-right ease-in-out;
