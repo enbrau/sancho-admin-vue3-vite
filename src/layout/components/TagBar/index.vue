@@ -176,12 +176,13 @@ export default {
       return tags
     },
     initTags() {
+      debugger
       const affixTags = this.affixTags = this.filterAffixTags(this.routes)
       for (const tag of affixTags) {
         // Must have tag name
-        if (tag.name) {
+        // if (tag.name) {
           this.$store.dispatch('layout/addVisitedView', tag)
-        }
+        // }
       }
     },
     addTags() {
@@ -306,18 +307,8 @@ export default {
 
       &.active {
         background-color: var(--el-color-primary);
-        color: var(--el-text-color-primary);
+        color: white;
         border-color: var(--el-color-primary);
-        // &::before {
-        //   content: '';
-        //   background: #fff;
-        //   display: inline-block;
-        //   width: 8px;
-        //   height: 8px;
-        //   border-radius: 50%;
-        //   position: relative;
-        //   margin-right: 2px;
-        // }
       }
     }
   }
