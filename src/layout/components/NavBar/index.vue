@@ -53,6 +53,10 @@ export default {
       line-height: var(--sancho-navbar-height);
       vertical-align: text-bottom;
 
+      span {
+        display: block;
+      }
+
       &.hover-effect {
         cursor: pointer;
         transition: .3s;
@@ -60,6 +64,10 @@ export default {
 
       &:focus {
         background-color: transparent !important;
+      }
+
+      &:hover {
+        background-color: var(--el-fill-color-light);
       }
     }
   }
