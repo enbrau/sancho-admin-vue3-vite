@@ -1,5 +1,7 @@
 <template>
-  dashboard
+  <div class="view-body-wrapper">
+    
+  </div>
 </template>
 
 <script>
