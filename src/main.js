@@ -18,7 +18,6 @@ import 'element-plus/theme-chalk/index.css'
 import 'element-plus/theme-chalk/dark/css-vars.css'
 import en from 'element-plus/lib/locale/lang/en'
 import zhCn from 'element-plus/lib/locale/lang/zh-cn'
-import zhTw from 'element-plus/lib/locale/lang/zh-tw'
 import * as ElIconModules from '@element-plus/icons'
 for(let iconName in ElIconModules){
   app.component(iconName, ElIconModules[iconName])
@@ -29,8 +28,6 @@ app.use(ElementPlus, {
     switch(locale) {
       case 'zh-cn':
         return zhCn
-      case 'zh-tw':
-        return zhTw
       default:
         return en
     }
@@ -40,6 +37,7 @@ app.use(ElementPlus, {
 import { preloadHook } from './hooks'
 preloadHook.promise(app).then(() => {
   app.mount('#app')
+  document.getElementsByClassName('loading-container')[0].style.display = 'none'
 })
 
 import '@/utils/handle-window-resize.js'
