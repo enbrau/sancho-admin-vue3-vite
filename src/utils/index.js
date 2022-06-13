@@ -67,16 +67,18 @@ export function isSystemDarkMode() {
 }
 
 export function getParameters(url) {
-  let URL = url || window.location
-  URL = JSON.parse(
+  const URL = url || window.location.href
+  if (URL.indexOf('?') < 0) {
+    return {}
+  }
+  return JSON.parse(
     '{"' +
       decodeURI(URL.split("?")[1])
         .replace(/"/g, '\\"')
         .replace(/&/g, '","')
         .replace(/=/g, '":"') +
-      '"}'
-  );
-  return JSON.stringify(URL)
+     '"}'
+  )
 }
 
 export function deepClone(source, strict) {
