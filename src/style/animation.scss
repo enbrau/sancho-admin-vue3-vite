@@ -1,0 +1,36 @@
+@-webkit-keyframes shining {  
+  0% {  box-shadow: 0 0 0 0 rgba(255,255,255,0.4);   }  
+  100% {  box-shadow: 0 0 0 20px rgba(255,255,255,0);   } 
+}
+@keyframes shining {  
+  0% {  box-shadow: 0 0 0 0 rgba(255,255,255,0.4);   }  
+  100% {  box-shadow: 0 0 0 20px rgba(255,255,255,0);   } 
+}
+
+@-webkit-keyframes twinkling {
+  0% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes twinkling {
+  0% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.sancho-animation {
+  &__shining {
+    -webkit-animation: shining 1.5s infinite;
+    animation: shining 1.5s infinite;
+  }
+  &__twinkling {
+    -webkit-animation: twinkling 1s infinite ease-in-out;
+    animation: twinkling 1s infinite ease-in-out;
+  }
+}
