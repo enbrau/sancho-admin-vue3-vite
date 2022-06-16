@@ -213,6 +213,19 @@ $cursor: #fff;
     padding: 160px 35px 0;
     margin: 0 auto;
     overflow: hidden;
+
+    input::-webkit-input-placeholder{
+      color: var(--el-bg-color-darker);
+    }
+    input::-moz-placeholder{
+      color: var(--el-bg-color-darker);
+    }
+    input:-moz-placeholder{
+      color: var(--el-bg-color-darker);
+    }
+    input:-ms-input-placeholder{
+      color: var(--el-bg-color-darker);
+    }
   }
 
   .tips {
@@ -229,7 +242,7 @@ $cursor: #fff;
 
   .svg-container {
     padding: 6px 5px 6px 15px;
-    color: $dark_gray;
+    color: var(--el-bg-color);
     vertical-align: middle;
     width: 30px;
     display: inline-block;
@@ -252,7 +265,7 @@ $cursor: #fff;
     right: 10px;
     top: 7px;
     font-size: 16px;
-    color: $dark_gray;
+    color: var(--el-bg-color);
     cursor: pointer;
     user-select: none;
   }
