@@ -26,10 +26,6 @@ import settings from '@/../settings'
 import Logo from './Logo.vue'
 import SidebarItem from './SidebarItem.vue'
 
-function isDarkMode() {
-  return false
-}
-
 export default {
   components: { Logo, SidebarItem },
   computed: {
@@ -56,7 +52,7 @@ export default {
           menus.push(route)
         } else if (route.children) {
           for (const croute of route.children) {
-            if (croute.isMenu) {
+            if (croute.isMenu || croute.path === 'dashboard') {
               menus.push(croute)
             }
           }
