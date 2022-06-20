@@ -2,6 +2,7 @@
 // import { fetchProfile, login, logout } from '@/api/subscriber'
 import { SESSION_STORAGE_KEYS, PERM_KEYS } from '@/consts'
 import { getCookie, setCookie, clearCookies } from '@/utils'
+import { filterRoutes } from '@/router'
 import settings from '@/../settings'
 import $api from '@/api'
 
