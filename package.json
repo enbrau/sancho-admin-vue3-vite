@@ -34,7 +34,7 @@
     "dotenv": "^16.0.1",
     "mockjs": "^1.1.0",
     "sass": "^1.52.1",
-    "vite": "^2.9.9",
+    "vite": "^2.9.13",
     "vite-plugin-mock": "^2.9.6",
     "vite-plugin-svg-icons": "^2.0.1"
   }
